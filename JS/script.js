@@ -27,34 +27,41 @@ document.getElementsByClassName("item")[0].classList.add("active");
 let index = 0;
 
 document.querySelector(".prev").addEventListener("click", function () {
-  index++;
-  if (index === 1) {
-    document.getElementsByClassName("item")[index].classList.add("active");
-    document
-      .getElementsByClassName("item")
-      [index - 1].classList.remove("active");
+  // index++;
+
+  if (index === 0) {
+    document.getElementsByClassName("item")[0].classList.remove("active");
+    document.getElementsByClassName("item")[index + 4].classList.add("active");
+    index = 4;
+  } else if (index === 4) {
+    document.getElementsByClassName("item")[index].classList.remove("active");
+    document.getElementsByClassName("item")[index - 1].classList.add("active");
+    index--;
   } else {
-    document.getElementsByClassName("item")[index].classList.add("active");
-    document
-      .getElementsByClassName("item")
-      [index - 1].classList.remove("active");
+    document.getElementsByClassName("item")[index].classList.remove("active");
+    document.getElementsByClassName("item")[index - 1].classList.add("active");
+    index--;
   }
   console.log(index);
 });
 
 document.querySelector(".next").addEventListener("click", function () {
-  index--;
-  if (index === 1) {
-    document.getElementsByClassName("item")[index].classList.add("active");
-    document
-      .getElementsByClassName("item")
-      [index + 1].classList.remove("active");
+  // index--;
+
+  if (index === 4) {
+    document.getElementsByClassName("item")[index].classList.remove("active");
+    document.getElementsByClassName("item")[index - 4].classList.add("active");
+    index = 0;
+  } else if (index === 0) {
+    document.getElementsByClassName("item")[0].classList.remove("active");
+    document.getElementsByClassName("item")[index + 1].classList.add("active");
+    index++;
   } else {
-    document.getElementsByClassName("item")[index].classList.add("active");
-    document
-      .getElementsByClassName("item")
-      [index + 1].classList.remove("active");
+    document.getElementsByClassName("item")[index].classList.remove("active");
+    document.getElementsByClassName("item")[index + 1].classList.add("active");
+    index++;
   }
+
   console.log(index);
 });
 
